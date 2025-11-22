@@ -13,7 +13,7 @@ export function Navig() {
           </div>
         </div>
       </nav>
-      <div className="bg-white w-70 h-200 -mt-17 -ml-30 border 1px solid black rounded-3xl">
+      <div className="bg-white w-70 h-200 -mt-17 -ml-30 border border-gray-100 rounded-3xl">
         <button className="text-black ml-50 mt-5 text-2xl cursor-pointer">+</button>
       </div>
     </div>
