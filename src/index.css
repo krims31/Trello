@@ -3,3 +3,25 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* Светлая тема (по умолчанию) */
+body.light {
+    background-color: white;
+    color: black;
+}
+
+/* Темная тема */
+body.dark {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+:root {
+    --bg-color: white;
+    --text-color: black;
+}
+
+body.dark {
+    --bg-color: #1a1a1a;
+    --text-color: white;
+}

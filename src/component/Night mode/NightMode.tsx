@@ -1,5 +1,5 @@
+import { useTheme } from "../theme-context/theme-context";
 import styled from "styled-components";
-
 const StyledWrapper = styled.div`
   .theme-checkbox {
     --toggle-size: 16px;
@@ -67,18 +67,33 @@ const StyledWrapper = styled.div`
 `;
 
 export default function NightMode() {
+  const { theme, toggleTheme } = useTheme();
+
+  console.log("NightMode rendered, theme:", theme);
+
   return (
     <>
       <button className="text-black -ml-166 mt-90 absolute top-100 text-1xl cursor-pointer transition duration-300 ease-in-out">
-        Night Mode
+        Night mode
         <img
           src="https://cdn-icons-png.flaticon.com/128/4623/4623236.png"
           alt="tasks"
           className="w-6 -mt-7 -ml-10"
         />
         <div className="night">
-          <StyledWrapper className="w-5 h-5">
-            <input type="checkbox" className="theme-checkbox w-4 h-4" />
+          <StyledWrapper
+            className="w-5 h-5"
+            onClick={() => {
+              console.log("Button clicked");
+              toggleTheme();
+            }}
+          >
+            <input
+              type="checkbox"
+              className="theme-checkbox w-4 h-4"
+              checked={theme === "dark"}
+              onChange={toggleTheme}
+            />
           </StyledWrapper>
         </div>
       </button>
