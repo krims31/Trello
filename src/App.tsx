@@ -10,6 +10,8 @@ import NightMode from "./component/Night mode/NightMode";
 import { ThemeProvider } from "./component/theme-context/ThemeProvider.tsx";
 import ArrowBack from "./component/ArrowBack/ArrowBack";
 import Choice from "./component/ChooiceProject/Choice";
+import Search from "./component/Search/Search.tsx";
+import Notification from "./component/Notification/Notification.tsx";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <NightMode />
         <ArrowBack />
         <Choice />
+        <Search />
+        <Notification />
       </div>
     </ThemeProvider>
   );

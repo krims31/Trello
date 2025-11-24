@@ -5,6 +5,7 @@ export default function Choice() {
   const [selectedName, setSelectedName] = useState("Project Plan");
 
   const options = ["Project Plan", "Development", "Testing", "Deployment"];
+
   return (
     <>
       <img
@@ -27,7 +28,7 @@ export default function Choice() {
             {options.map((option) => (
               <div
                 key={option}
-                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                className="px-4 py-2 hover:bg-red-500 cursor-pointer"
                 onClick={() => {
                   setSelectedName(option);
                   setIsOpen(false);
