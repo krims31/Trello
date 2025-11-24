@@ -8,6 +8,8 @@ import Table from "./component/Table/Table";
 import Calendar from "./component/Calendar/Calendar";
 import NightMode from "./component/Night mode/NightMode";
 import { ThemeProvider } from "./component/theme-context/ThemeProvider.tsx";
+import ArrowBack from "./component/ArrowBack/ArrowBack";
+import Choice from "./component/ChooiceProject/Choice";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Table />
         <Calendar />
         <NightMode />
+        <ArrowBack />
+        <Choice />
       </div>
     </ThemeProvider>
   );

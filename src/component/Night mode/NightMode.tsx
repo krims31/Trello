@@ -1,5 +1,5 @@
-import { useTheme } from "../theme-context/theme-context";
 import styled from "styled-components";
+import { useTheme } from "../theme-context/theme-context";
 const StyledWrapper = styled.div`
   .theme-checkbox {
     --toggle-size: 16px;
@@ -68,8 +68,6 @@ const StyledWrapper = styled.div`
 
 export default function NightMode() {
   const { theme, toggleTheme } = useTheme();
-
-  console.log("NightMode rendered, theme:", theme);
 
   return (
     <>

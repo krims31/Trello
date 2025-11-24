@@ -11,7 +11,6 @@ export function ThemeProvider(props: { children: ReactNode }) {
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
-    console.log("Theme toggled to ", theme === "light" ? "dark" : "light");
   };
 
   const value: ThemeContextType = {
