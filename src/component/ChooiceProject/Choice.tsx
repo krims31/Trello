@@ -24,11 +24,11 @@ export default function Choice() {
         </div>
 
         {isOpen && (
-          <div className="absolute top-full left-0 mt-1 bg-white border rounded shadow-lg z-10 min-w-40">
+          <div className="absolute top-full left-0 mt-1 bg-white text-black border rounded shadow-lg z-10 min-w-40">
             {options.map((option) => (
               <div
                 key={option}
-                className="px-4 py-2 hover:bg-red-500 cursor-pointer"
+                className="px-4 py-2 text-black cursor-pointer"
                 onClick={() => {
                   setSelectedName(option);
                   setIsOpen(false);

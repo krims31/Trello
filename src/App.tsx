@@ -1,19 +1,21 @@
+import { useState } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import { Navig } from "./component/Navig/Navig";
-import LoginAuth from "./component/LoginAuth/LoginAuth";
-import Boards from "./component/board/Boards";
-import Members from "./component/members/Members";
-import Settings from "./component/settings/Settings";
-import Table from "./component/Table/Table";
-import Calendar from "./component/Calendar/Calendar";
-import NightMode from "./component/Night mode/NightMode";
-import { ThemeProvider } from "./component/theme-context/ThemeProvider.tsx";
 import ArrowBack from "./component/ArrowBack/ArrowBack";
+import Boards from "./component/board/Boards";
+import Calendar from "./component/Calendar/Calendar";
 import Choice from "./component/ChooiceProject/Choice";
-import Search from "./component/Search/Search.tsx";
+import LoginAuth from "./component/LoginAuth/LoginAuth";
+import Members from "./component/members/Members";
+import { Navig } from "./component/Navig/Navig";
+import NightMode from "./component/Night mode/NightMode";
 import Notification from "./component/Notification/Notification.tsx";
 import ProfileLogin from "./component/ProfileLogin/ProfileLogin.tsx";
-import { useState } from "react";
+import Search from "./component/Search/Search.tsx";
+import Settings from "./component/settings/Settings";
+import Table from "./component/Table/Table";
+import { ThemeProvider } from "./component/theme-context/ThemeProvider.tsx";
+import ToDo from "./component/Todo/ToDo.tsx";
 
 function App() {
   const [projects, setProjects] = useState<string[]>([]);
@@ -24,21 +26,32 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div>
-        <Navig onAddProject={handleAddProject} />
-        <LoginAuth />
-        <Boards />
-        <Members />
-        <Settings />
-        <Table />
-        <Calendar projects={projects} />
-        <NightMode />
-        <ArrowBack />
-        <Choice />
-        <Search />
-        <Notification />
-        <ProfileLogin />
-      </div>
+      <Router>
+        <Routes>
+          {/* Главная страница со всеми компонентами */}
+          <Route
+            path="/"
+            element={
+              <div>
+                <Navig onAddProject={handleAddProject} />
+                <LoginAuth />
+                <Boards />
+                <Members />
+                <Settings />
+                <Table />
+                <Calendar projects={projects} />
+                <NightMode />
+                <ArrowBack />
+                <Choice />
+                <Search />
+                <Notification />
+                <ProfileLogin />
+                <ToDo />
+              </div>
+            }
+          />
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 }

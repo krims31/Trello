@@ -10,10 +10,14 @@ export default function ProfileLogin() {
 
   const handleLoginAction = (action: string) => {
     setIsOpen(false);
-    if (action === "login") {
-      console.log("User logged in");
-    } else if (action === "logout") {
-      console.log("User logout in");
+    try {
+      if (action === "login") {
+        console.log("User logged in");
+      } else if (action === "logout") {
+        console.log("User logout in");
+      }
+    } catch (err) {
+      console.log("Error: ", err);
     }
   };
 
