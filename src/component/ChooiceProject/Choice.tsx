@@ -19,8 +19,8 @@ export default function Choice() {
           className="flex items-center cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <h1 className="text-2xl mr-2">{selectedName}</h1>
-          <span className="text-lg">▼</span>
+          <h1 className="text-2xl mr-2 text-black">{selectedName}</h1>
+          <span className="text-lg text-black">▼</span>
         </div>
 
         {isOpen && (

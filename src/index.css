@@ -1,27 +1,27 @@
 body {
-    background-color: #fff;
-    margin: 0;
-    padding: 0;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
 /* Светлая тема (по умолчанию) */
 body.light {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 /* Темная тема */
 body.dark {
-    background-color: #1a1a1a;
-    color: white;
+  background-color: #1a1a1a;
+  color: white;
 }
 
 :root {
-    --bg-color: white;
-    --text-color: black;
+  --bg-color: white;
+  --text-color: black;
 }
 
 body.dark {
-    --bg-color: #1a1a1a;
-    --text-color: white;
+  --bg-color: #1a1a1a;
+  --text-color: white;
 }

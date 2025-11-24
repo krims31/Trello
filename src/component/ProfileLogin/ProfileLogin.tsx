@@ -23,7 +23,7 @@ export default function ProfileLogin() {
 
   return (
     <>
-      <div className="absolute top-14 left-415">
+      <div className="absolute top-14 left-370">
         <div className="flex items-center gap-4">
           <img
             src="https://cdn-icons-png.flaticon.com/128/17446/17446833.png"

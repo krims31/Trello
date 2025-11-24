@@ -28,11 +28,10 @@ function App() {
     <ThemeProvider>
       <Router>
         <Routes>
-          {/* Главная страница со всеми компонентами */}
           <Route
             path="/"
             element={
-              <div>
+              <div className="bg-gray-50 rounded-3xl">
                 <Navig onAddProject={handleAddProject} />
                 <LoginAuth />
                 <Boards />
