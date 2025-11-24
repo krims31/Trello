@@ -12,23 +12,32 @@ import ArrowBack from "./component/ArrowBack/ArrowBack";
 import Choice from "./component/ChooiceProject/Choice";
 import Search from "./component/Search/Search.tsx";
 import Notification from "./component/Notification/Notification.tsx";
+import ProfileLogin from "./component/ProfileLogin/ProfileLogin.tsx";
+import { useState } from "react";
 
 function App() {
+  const [projects, setProjects] = useState<string[]>([]);
+
+  const handleAddProject = (projectName: string) => {
+    setProjects((prev) => [...prev, projectName]);
+  };
+
   return (
     <ThemeProvider>
       <div>
-        <Navig />
+        <Navig onAddProject={handleAddProject} />
         <LoginAuth />
         <Boards />
         <Members />
         <Settings />
         <Table />
-        <Calendar />
+        <Calendar projects={projects} />
         <NightMode />
         <ArrowBack />
         <Choice />
         <Search />
         <Notification />
+        <ProfileLogin />
       </div>
     </ThemeProvider>
   );
