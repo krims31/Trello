@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ProfileLogin() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const navigate = useNavigate();
   const logins = [
     { label: "Login", action: "login" },
     { label: "Sign Out", action: "logout" },
@@ -12,6 +13,7 @@ export default function ProfileLogin() {
     setIsOpen(false);
     try {
       if (action === "login") {
+        navigate('/login')
         console.log("User logged in");
       } else if (action === "logout") {
         console.log("User logout in");

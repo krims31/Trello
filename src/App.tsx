@@ -33,7 +33,6 @@ function App() {
             element={
               <div className="bg-gray-50 rounded-3xl">
                 <Navig onAddProject={handleAddProject} />
-                <LoginAuth />
                 <Boards />
                 <Members />
                 <Settings />
@@ -49,6 +48,7 @@ function App() {
               </div>
             }
           />
+          <Route path="/login" element={<LoginAuth />} />
         </Routes>
       </Router>
     </ThemeProvider>
