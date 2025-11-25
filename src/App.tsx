@@ -47,6 +47,12 @@ function App() {
             element={
               isAuth ? (
                 <div className="bg-gray-50 rounded-3xl">
+                  <button
+                    onClick={handleLogout}
+                    className="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+                  >
+                    Выйти
+                  </button>
                   <Navig onAddProject={handleAddProject} />
                   <Boards />
                   <Members />
