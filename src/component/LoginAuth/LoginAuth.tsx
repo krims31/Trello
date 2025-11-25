@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 
-export default function LoginAuth() {
+interface LoginAuthProps {
+  onLogin: () => void;
+}
+
+export default function LoginAuth({ onLogin }: LoginAuthProps) {
   const [showPassword, setShowPassword] = useState(false);
   const [isPassword, setIsPassword] = useState("");
   const [isEmail, setIsEmail] = useState("");
@@ -23,7 +27,15 @@ export default function LoginAuth() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Email:", isEmail);
+
+    if (isEmail && isPassword) {
+      console.log("Email:", isEmail);
+      console.log("Password:", isPassword);
+
+      onLogin();
+    } else {
+      console.log("Invalid email or password");
+    }
   };
 
   useEffect(() => {

@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
 import "./App.css";
 import ArrowBack from "./component/ArrowBack/ArrowBack";
 import Boards from "./component/board/Boards";
@@ -18,10 +23,19 @@ import { ThemeProvider } from "./component/theme-context/ThemeProvider.tsx";
 import ToDo from "./component/Todo/ToDo.tsx";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false);
   const [projects, setProjects] = useState<string[]>([]);
 
   const handleAddProject = (projectName: string) => {
     setProjects((prev) => [...prev, projectName]);
+  };
+
+  const handleLogin = () => {
+    setIsAuth(true);
+  };
+
+  const handleLogout = () => {
+    setIsAuth(false);
   };
 
   return (
@@ -31,24 +45,37 @@ function App() {
           <Route
             path="/"
             element={
-              <div className="bg-gray-50 rounded-3xl">
-                <Navig onAddProject={handleAddProject} />
-                <Boards />
-                <Members />
-                <Settings />
-                <Table />
-                <Calendar projects={projects} />
-                <NightMode />
-                <ArrowBack />
-                <Choice />
-                <Search />
-                <Notification />
-                <ProfileLogin />
-                <ToDo />
-              </div>
+              isAuth ? (
+                <div className="bg-gray-50 rounded-3xl">
+                  <Navig onAddProject={handleAddProject} />
+                  <Boards />
+                  <Members />
+                  <Settings />
+                  <Table />
+                  <Calendar projects={projects} />
+                  <NightMode />
+                  <ArrowBack />
+                  <Choice />
+                  <Search />
+                  <Notification />
+                  <ProfileLogin />
+                  <ToDo />
+                </div>
+              ) : (
+                <Navigate to="/login" replace />
+              )
             }
           />
-          <Route path="/login" element={<LoginAuth />} />
+          <Route
+            path="/login"
+            element={
+              !isAuth ? (
+                <LoginAuth onLogin={handleLogin} />
+              ) : (
+                <Navigate to="/" replace />
+              )
+            }
+          />
         </Routes>
       </Router>
     </ThemeProvider>
