@@ -4,6 +4,7 @@ export default function ToDo() {
   const [cards, setCards] = useState<string[]>([]);
   const [isAdding, setIsAdding] = useState<boolean>(false);
   const [addText, setAddText] = useState<string>("");
+  const [addingList, setAddingList] = useState<string>("");
 
   const handleCopy = () => {
     console.log("Copy is work!");
@@ -40,6 +41,13 @@ export default function ToDo() {
     }
   };
 
+  const handleAddList: () => void = () => {
+    if (addingList.trim()) {
+      setAddingList("");
+    }
+    console.log("Add list");
+  };
+
   const todo = "To do";
   const AddCard = "+ Add a card";
 
@@ -57,7 +65,7 @@ export default function ToDo() {
           {cards.map((card, index) => (
             <div
               key={index}
-              className="bg-white p-3 rounded-lg shadow-sm border border-gray-200 flex justify-between items-center group"
+              className="bg-white p-3 text-black rounded-lg shadow-sm border border-gray-200 flex justify-between items-center group"
             >
               <span>{card}</span>
               <button
@@ -84,7 +92,7 @@ export default function ToDo() {
               }
               onKeyDown={handleKeyPress}
               placeholder="Введите задачу..."
-              className="w-full p-2 border border-gray-300 rounded-lg resize-none focus:outline-none focus:border-blue-500"
+              className="w-full p-2 border text-black border-gray-300 rounded-lg resize-none focus:outline-none focus:border-blue-500"
               rows={3}
               autoFocus
             />
@@ -119,6 +127,13 @@ export default function ToDo() {
           onClick={handleCopy}
           className="absolute bottom-4 right-4 cursor-pointer"
         />
+
+        <button
+          onClick={handleAddList}
+          className="ml-120 border rounded p-1 w-50 h-10 cursor-pointer text-black bg-white hover:bg-gray-400 transition-all duration-300 ease-in-out"
+        >
+          + Add another list
+        </button>
       </div>
     </>
   );

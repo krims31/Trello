@@ -14,7 +14,7 @@ export default function LoginAuth({ onLogin }: LoginAuthProps) {
   };
 
   const handlePasswordChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
+    e: React.ChangeEvent<HTMLInputElement>
   ): void => {
     if (!isPassword) {
       setIsPassword(e.target.value);
