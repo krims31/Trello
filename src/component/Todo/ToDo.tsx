@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 export default function ToDo() {
   const [cards, setCards] = useState<string[]>([]);
   const [isAdding, setIsAdding] = useState<boolean>(false);
@@ -57,6 +56,14 @@ export default function ToDo() {
     todo: "To do",
     add: "+ Add a card",
   } as const;
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("email", JSON.stringify(cards));
+    } catch (err) {
+      console.error("Error: ", err);
+    }
+  }, [cards]);
 
   return (
     <>
