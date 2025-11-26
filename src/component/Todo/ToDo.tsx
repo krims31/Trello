@@ -5,12 +5,17 @@ export default function ToDo() {
   const [isAdding, setIsAdding] = useState<boolean>(false);
   const [addText, setAddText] = useState<string>("");
   const [addingList, setAddingList] = useState<string>("");
+  const [copy, setCopy] = useState<string>("");
 
   const handleCopy = () => {
-    console.log("Copy is work!");
+    if (copy) {
+      setCopy(copy);
+      console.log("Copy is work!");
+    } else {
+      console.log("Not copy!");
+    }
   };
 
-  // Функция удаления карточки по индексу
   const deleteCard = (index: number) => {
     setCards(cards.filter((_, i) => i !== index));
   };
@@ -48,13 +53,15 @@ export default function ToDo() {
     console.log("Add list");
   };
 
-  const todo = "To do";
-  const AddCard = "+ Add a card";
+  const TODO = {
+    todo: "To do",
+    add: "+ Add a card",
+  } as const;
 
   return (
     <>
       <div className="bg-pink-50 w-90 h-95 absolute top-42 left-140 rounded-2xl p-4">
-        <p className="text-black font-semibold mb-4">{todo}</p>
+        <p className="text-black font-semibold mb-4">{TODO.todo}</p>
         <img
           src="https://cdn-icons-png.flaticon.com/128/11402/11402115.png"
           alt="..."
@@ -116,7 +123,7 @@ export default function ToDo() {
             onClick={handleAddCardClick}
             className="mt-4 cursor-pointer text-white bg-black hover:bg-gray-800 w-full py-2 rounded-lg transition-colors"
           >
-            {AddCard}
+            {TODO.add}
           </button>
         )}
 
@@ -132,7 +139,7 @@ export default function ToDo() {
           onClick={handleAddList}
           className="ml-120 border rounded p-1 w-50 h-10 cursor-pointer text-black bg-white hover:bg-gray-400 transition-all duration-300 ease-in-out"
         >
-          + Add another list
+          {TODO.add}
         </button>
       </div>
     </>
